@@ -1,0 +1,24 @@
+{% for collection in collections %}
+	{% for product in collection.products %}
+		{% assign current = 'now' | date : '%s' %}
+		{% assign data = product.metafields.my_fields.date | date : '%s' %}
+		{{ product.metafields.my_fields.date | time_tag | date : '%Y%m%d'}}
+	{% endfor %}
+{% endfor %}
+{% schema %}
+  {
+    "name": "販売期間",
+    "settings": [],
+	"presets": [
+		{
+			"name": "販売期間"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

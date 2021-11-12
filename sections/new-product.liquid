@@ -1,0 +1,36 @@
+<div id="section-new-product">
+  {% for collection in collections %}
+  	{% if collection.title == '全ての商品' %}
+		{% for product in collection.products limit: 3%}
+ 			 <p>{{ product.title }}</p>
+  			<p>{{ product.selected_variant.tax }}
+	{% endfor %}
+  {% endif %}
+{% endfor %}
+ 
+</div>
+
+{% schema %}
+  {
+    "name": "新着商品",
+    "settings": [
+		{
+          "id": "title",
+          "type": "text",
+          "label": "見出し",
+          "default": "新着商品"
+        }
+	],
+	"presets": [
+		{
+			"name": "新着商品"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

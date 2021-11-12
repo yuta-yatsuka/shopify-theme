@@ -1,0 +1,47 @@
+<div name="boost-products">  
+{% for collection in collections %}
+  	{% if collection.title == '全ての商品' %}
+  		<p>{{ collection.title }}</p>
+		{% for product in collection.products %}
+ 			 <p id={{ product.id }} style="display: none;">{{ product.title }}</p>
+	{% endfor %}
+  {% break %}
+  {% endif %}
+{% endfor %}
+  {{ handle }}
+  <a href="/apps/proxy/test-proxy">テストプロキシ</a>
+</div>
+{% schema %}
+  {
+    "name": "テストajax",
+	"presets": [
+      {
+        "name": "テストajax",
+		"category" : "テストajax"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+var url = "https://shopify-dev33.visualive.tokyo/ajax-callback";
+
+var xhr = new XMLHttpRequest();
+ 
+xhr.open('GET', url);
+xhr.send();
+ 
+xhr.onreadystatechange = function() {
+    if(xhr.readyState === 4 && xhr.status === 200) {
+     	var datas = JSON.parse(xhr.responseText);
+		for(data in datas){
+			var product = document.getElementById(data);
+			product.style.display = 'block';
+		}
+	}
+      
+}
+{% endjavascript %}
