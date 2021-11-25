@@ -1,4 +1,5 @@
-<div name="boost-products">  
+<div name="boost-products">
+  hello github shopify 
 {% for collection in collections %}
   	{% if collection.title == '全ての商品' %}
   		<p>{{ collection.title }}</p>
@@ -30,10 +31,10 @@
 var url = "https://shopify-dev33.visualive.tokyo/ajax-callback";
 
 var xhr = new XMLHttpRequest();
- 
+
 xhr.open('GET', url);
 xhr.send();
- 
+
 xhr.onreadystatechange = function() {
     if(xhr.readyState === 4 && xhr.status === 200) {
      	var datas = JSON.parse(xhr.responseText);
@@ -42,6 +43,6 @@ xhr.onreadystatechange = function() {
 			product.style.display = 'block';
 		}
 	}
-      
+
 }
 {% endjavascript %}
