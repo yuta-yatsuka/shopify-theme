@@ -75,7 +75,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured products",
-        "collection": "frontpage",
+        "collection": "new",
         "products_to_show": 4,
         "show_view_all": true,
         "swipe_on_mobile": false,
@@ -189,11 +189,13 @@
     },
     "16329770234645eee0": {
       "type": "sales_period",
-      "settings": {}
+      "settings": {
+      }
     },
     "1634194740a0c99de1": {
       "type": "ajax-test",
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [
